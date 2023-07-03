@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -40,11 +41,8 @@ public class Alarm : MonoBehaviour
 
     private void StopAlarm(Transform player)
     {
-        foreach (AlarmArea area in _areas)
-        {
-            if (area.Bounds.Contains(player.position))
+        if (_areas.Any(area => area.Bounds.Contains(player.position)))
                 return;
-        }
 
         if (_volumeMoveCoroutine != null)
         {
