@@ -18,11 +18,13 @@ public class AlarmArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Entered?.Invoke();
+        if (other.TryGetComponent(out Thief thiefComponent))
+            Entered?.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Exited?.Invoke(other.transform);
+        if (other.TryGetComponent(out Thief thiefComponent))
+            Exited?.Invoke(other.transform);
     }
 }
