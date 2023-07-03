@@ -4,10 +4,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class AlarmArea : MonoBehaviour
 {
-    public UnityAction Entered;
-    public UnityAction<Transform> Exited;
-
     private Collider _collider;
+
+    public event UnityAction Entered;
+    public event UnityAction<Transform> Exited;
 
     public Bounds Bounds => _collider.bounds;
 
