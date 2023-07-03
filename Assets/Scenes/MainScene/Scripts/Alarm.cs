@@ -35,7 +35,6 @@ public class Alarm : MonoBehaviour
             _audioSource.Play();
         }
 
-
         _volumeMoveCoroutine = StartCoroutine(MoveVolume(1));
     }
 
